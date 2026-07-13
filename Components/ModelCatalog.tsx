@@ -218,7 +218,7 @@ const cards: CatalogCard[] = [
     label: "TTS",
     icon: "wave",
     art: "wave",
-    className: "lg:col-start-1 lg:row-start-3 lg:h-[224px]",
+    className: "lg:col-start-1 lg:row-start-3 lg:h-[230px]",
   },
   {
     title: "Realtime Voice Pipeline",
@@ -226,7 +226,7 @@ const cards: CatalogCard[] = [
     price: "$0.018 / min",
     label: "PIPELINE",
     icon: "sine",
-    className: "lg:col-start-1 lg:row-start-4 lg:h-[238px]",
+    className: "lg:col-start-1 lg:row-start-4 lg:h-[240px]",
     flow: true,
   },
   {
@@ -237,7 +237,7 @@ const cards: CatalogCard[] = [
     label: "LLM",
     icon: "chat",
     art: "cube",
-    className: "lg:col-start-2 lg:row-start-1 lg:h-[238px]",
+    className: "lg:col-start-2 lg:row-start-1 lg:h-[240px]",
   },
   {
     title: "Whisper Large V3 Turbo",
@@ -247,7 +247,7 @@ const cards: CatalogCard[] = [
     icon: "wave",
     art: "bars",
     variant: "whisper",
-    className: "lg:col-start-2 lg:row-start-2 lg:h-[260px]",
+    className: "lg:col-start-2 lg:row-start-2 lg:h-[240px]",
   },
   {
     title: "Cohere Transcribe",
@@ -256,7 +256,7 @@ const cards: CatalogCard[] = [
     label: "STT",
     icon: "sine",
     art: "dots",
-    className: "lg:col-start-2 lg:row-start-3 lg:h-[224px]",
+    className: "lg:col-start-2 lg:row-start-3 lg:h-[230px]",
   },
   {
     title: "XTTS v2",
@@ -265,7 +265,7 @@ const cards: CatalogCard[] = [
     label: "TTS",
     icon: "rocket",
     art: "wave",
-    className: "lg:col-start-2 lg:row-start-4 lg:h-[238px]",
+    className: "lg:col-start-2 lg:row-start-4 lg:h-[240px]",
   },
   {
     title: "Qwen 3.5 9B",
@@ -275,7 +275,7 @@ const cards: CatalogCard[] = [
     label: "LLM",
     icon: "cube",
     art: "cube",
-    className: "lg:col-start-3 lg:row-start-2 lg:h-[236px]",
+    className: "lg:col-start-3 lg:row-start-2 lg:h-[240px]",
   },
   {
     title: "Voice Pipeline",
@@ -283,7 +283,7 @@ const cards: CatalogCard[] = [
     price: "$0.013 / min",
     label: "PIPELINE",
     icon: "pipeline",
-    className: "lg:col-start-3 lg:row-start-3 lg:row-span-2 lg:h-[482px]",
+    className: "lg:col-start-3 lg:row-start-3 lg:row-span-2 lg:h-[490px]",
     flow: true,
   },
 ];
@@ -376,29 +376,35 @@ function ModelCard({ card, index }: { card: CatalogCard; index: number }) {
 
 export default function ModelCatalog() {
   return (
-    <section className="relative overflow-hidden bg-[#050506] px-8 pb-24 pt-20 text-white sm:px-12 lg:px-20 lg:pb-32 lg:pt-28 xl:px-24">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="relative overflow-hidden bg-[#050506] px-8 pb-24 pt-20 text-white sm:px-12 lg:px-16 lg:pb-32 lg:pt-28 xl:px-20"
+    >
       <div className="pointer-events-none absolute left-1/2 top-16 h-[560px] w-[760px] -translate-x-1/2 rounded-full bg-white/[0.025] blur-[170px]" />
       <div className="pointer-events-none absolute right-0 top-1/3 h-[420px] w-[420px] rounded-full bg-[#ff2f8f]/[0.05] blur-[150px]" />
 
-      <div className="relative mx-auto max-w-[1420px]">
-        <div className="grid gap-8 lg:grid-cols-[440px_minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[238px_236px_224px_238px] lg:gap-5">
+      <div className="relative mx-auto max-w-[1440px]">
+        <div className="grid gap-8 lg:grid-cols-[500px_minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[240px_240px_230px_240px] lg:gap-5">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            className="lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:pr-12"
+            className="lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:pr-14"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#ff3ba7]">
               Model Catalog
             </span>
-            <h2 className="mt-7 max-w-[430px] text-[clamp(2.55rem,3.35vw,3.35rem)] font-bold leading-[1.08] text-white">
-              Top open-weight models.
+            <h2 className="mt-7 max-w-[470px] text-[clamp(2.35rem,3.05vw,3rem)] font-bold leading-[1.1] text-white">
+              Top open weight models.
               <br />
               All in one place.
             </h2>
-            <p className="mt-6 max-w-[405px] text-[17px] leading-7 text-white/58">
-              STT, LLM, TTS, and complete voice pipelines, running at the edge.
+            <p className="mt-6 max-w-[430px] text-[17px] leading-7 text-white/58">
+              STT, LLM, TTS and complete voice pipelines running at the edge.
             </p>
 
             <a
@@ -417,6 +423,6 @@ export default function ModelCatalog() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

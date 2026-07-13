@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 const ACCENT = "#ff2f8f";
@@ -156,7 +159,13 @@ const cards: FeatureCard[] = [
 
 export default function PolarGridFeatureCards() {
   return (
-    <section className="bg-black px-6 py-10 sm:px-10 lg:px-16">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="bg-black px-6 py-10 sm:px-10 lg:px-16"
+    >
       <div className="mx-auto grid w-full grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 md:grid-cols-2">
         {cards.map((card) => (
           <div
@@ -192,6 +201,6 @@ export default function PolarGridFeatureCards() {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

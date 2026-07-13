@@ -3,7 +3,12 @@
 import { motion } from "framer-motion";
 import CircularComponent from "@/Components/CircularComponent";
 import ModelCatalog from "@/Components/ModelCatalog";
+import Integration from "@/Components/Integration";
 import PolarGridFeatureCards from "@/Components/PolarGridFeatureCards";
+import CTA from "@/Components/CTA";
+import dynamic from "next/dynamic";
+
+const PolarGridMap = dynamic(() => import("@/Components/TheNetwork"), { ssr: false });
 
 export default function WhyPolarGrid() {
   return (
@@ -67,6 +72,22 @@ export default function WhyPolarGrid() {
 
       </div>
       <ModelCatalog />
+      <div className="mt-10 text-center">
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-white/70 transition-colors hover:text-white"
+        >
+          View full model specs
+          <span className="text-lg" style={{ color: "#ff2f8f" }}>
+            →
+          </span>
+        </a>
+      </div>
+      <Integration />
+      <div className="mx-[7%] max-w-7xl px-10 mt-20">
+        <PolarGridMap />
+      </div>
+      <CTA />
     </section>
   );
 }

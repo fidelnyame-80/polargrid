@@ -61,7 +61,7 @@ export default function Navbar() {
         </div>
 
         {/* Center */}
-        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
+        <div className="absolute left-1/2 hidden -translate-x-[calc(50%+20px)] items-center gap-1 md:flex px-8">
           {links.map((item) => (
             <Link
               key={item.label}
