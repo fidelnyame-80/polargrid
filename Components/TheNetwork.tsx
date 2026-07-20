@@ -1,6 +1,7 @@
 "use client";
 
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
+import type { GeographiesProps } from "react-simple-maps";
 
 // ---------------------------------------------------------------------------
 // npm install react-simple-maps d3-geo
@@ -126,7 +127,7 @@ export default function NetworkCoverageMapSVG() {
         >
           <ZoomableGroup zoom={1} center={[-99, 40]}>
             <Geographies geography={GEO_URL}>
-              {({ geographies }) =>
+              {({ geographies }: Parameters<NonNullable<GeographiesProps["children"]>>[0]) =>
                 geographies
                   .filter((geo) => NA_COUNTRY_FILL[geo.id as string])
                   .map((geo) => (
